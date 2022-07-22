@@ -4,7 +4,7 @@
 
 <p align="center">
   A <em>completely</em> customizable framework <br/>
-  for building rich text editors.
+  for building rich text editors
 </p>
 <br/>
 
