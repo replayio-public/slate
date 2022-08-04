@@ -36,7 +36,8 @@
     "test:jest": "jest --config jest.config.js",
     "watch": "yarn build:rollup --watch",
     "cypress:run": "cypress run",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:record": "RECORD_ALL_CONTENT=1 RECORD_REPLAY_METADATA_FILE=$(mktemp) cypress run --browser 'Replay Firefox'"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
@@ -122,5 +123,8 @@
       "eslint --fix"
     ]
   },
-  "packageManager": "yarn@3.0.1"
+  "packageManager": "yarn@3.0.1",
+  "dependencies": {
+    "@replayio/cypress": "^0.2.13"
+  }
 }
