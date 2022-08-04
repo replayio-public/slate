@@ -1,8 +1,10 @@
 name: CI
 
 on:
-  - push
-  - pull_request
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   ci:
@@ -12,7 +14,6 @@ jobs:
       matrix:
         command:
           - 'test'
-          - 'test:integration'
           - 'lint:eslint'
           - 'lint:prettier'
           - 'lint:typescript'
@@ -31,3 +32,28 @@ jobs:
         run: yarn && yarn build && yarn ${{ matrix.command }}
         env:
           CI: true
+  cy:    
+    name: Run Cypress
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: yarn
+          key: node16
+
+      - name: Run
+        run: yarn && yarn build
+
+      - name: Cypress tests
+        uses: replayio/action-cypress@0.2.3
+        with:
+          command: yarn test:integration --
+          browser: "Replay Firefox"
+          api-key: ${{ secrets.CYPRESS_REPLAY_API_KEY }}
+          public: true
+          upload-all: true
