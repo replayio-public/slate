@@ -52,7 +52,7 @@ jobs:
       - name: Cypress
         uses: replayio/action-cypress@v0.2.3
         with:
-          command: yarn test:integration -- --
+          command: yarn test:integration --
           browser: "Replay Firefox"
           api-key: ${{ secrets.CYPRESS_REPLAY_API_KEY }}
           public: true
