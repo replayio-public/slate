@@ -3393,31 +3393,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replayio/cypress@npm:^0.2.7":
-  version: 0.2.9
-  resolution: "@replayio/cypress@npm:0.2.9"
+"@replayio/cypress@npm:^0.2.15":
+  version: 0.2.15
+  resolution: "@replayio/cypress@npm:0.2.15"
   dependencies:
-    "@replayio/replay": ^0.8.1
+    "@replayio/replay": ^0.9.3
     uuid: ^8.3.2
   bin:
     replayio-cypress: bin/replayio-cypress.js
-  checksum: 9848a5ce6385a7eac30b94b3539391097076a389853898a7f92676ac87baa586b0d6238885b75a313d03f006a7b1711b5e598a015a696cdfd611fceda0094305
+  checksum: 91e1dac467b3a1eb14bb433db4e830bd0665628943e8a728f465e8bb8a36c65edfc297b67f4269b7c21a43fc66047feb291c6b625b8177346e5827c0894d587a
   languageName: node
   linkType: hard
 
-"@replayio/replay@npm:^0.8.1":
-  version: 0.8.1
-  resolution: "@replayio/replay@npm:0.8.1"
+"@replayio/replay@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@replayio/replay@npm:0.9.3"
   dependencies:
     "@replayio/sourcemap-upload": ^1.0.2
     commander: ^7.2.0
     is-uuid: ^1.0.2
+    jsonata: ^1.8.6
     superstruct: ^0.15.4
     text-table: ^0.2.0
     ws: ^7.5.0
   bin:
     replay: bin/replay.js
-  checksum: eb1f947d881b4e4555d7bab524d857d1008f44340abf479d30646f55ed925de2863d77391ad89d37559a67c60f613af070e37ed6819587ba5c29d7561e81e422
+  checksum: eb9e19477db04ba7d1ad613b7f6566c2eea829bec3d82020e4fa8cf014865e067161e065f7ef8e5339db3629824440b154a26947f7800d3464760853850369a1
   languageName: node
   linkType: hard
 
@@ -10128,6 +10129,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsonata@npm:^1.8.6":
+  version: 1.8.6
+  resolution: "jsonata@npm:1.8.6"
+  checksum: 748e052aa1d848ba263918603a5e7e872c26fbd63fbb3330dd28cb9fa9aed0478730732fe03149fddcb1b1b4963f5eb359f06da6e17ef84734f2067b1841b995
+  languageName: node
+  linkType: hard
+
 "jsonfile@npm:^4.0.0":
   version: 4.0.0
   resolution: "jsonfile@npm:4.0.0"
@@ -14227,7 +14235,7 @@ resolve@^2.0.0-next.3:
     "@changesets/changelog-github": ^0.3.0
     "@changesets/cli": ^2.14.1
     "@emotion/css": ^11.7.1
-    "@replayio/cypress": ^0.2.7
+    "@replayio/cypress": ^0.2.15
     "@testing-library/cypress": ^8.0.0
     "@types/jest": 27.0.1
     "@types/lodash": ^4.14.149
