@@ -1,14 +1,16 @@
 name: E2E Test
 on: 
   schedule:
-  # Hammer the backend by running this every 5mins 😈
-    - cron: '*/5 * * * *'
+    - cron: '0 0 * * *'
   push:
 
 jobs:
   cy:    
     name: Run Cypress
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        record: ["record", "no-record"]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -32,3 +34,5 @@ jobs:
           public: true
           issue-number: ${{ github.event.pull_request.number }}
           upload-all: true
+        env:
+          RECORD_REPLAY_NO_RECORD: ${{ matrix.record == 'no-record' && '1' || '' }} 
