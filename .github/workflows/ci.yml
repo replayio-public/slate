@@ -1,21 +1,14 @@
-name: CI
-
-on:
-  - push
-  - pull_request
+name: E2E Test
+on: 
+  schedule:
+  # Hammer the backend by running this every 5mins 😈
+    - cron: '*/5 * * * *'
+  push:
 
 jobs:
-  ci:
-    name: ${{ matrix.command }}
+  cy:    
+    name: Run Cypress
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        command:
-          - 'test'
-          - 'test:integration'
-          - 'lint:eslint'
-          - 'lint:prettier'
-          - 'lint:typescript'
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -27,7 +20,15 @@ jobs:
           cache: yarn
           key: node16
 
-      - name: Run ${{ matrix.command }}
-        run: yarn && yarn build && yarn ${{ matrix.command }}
-        env:
-          CI: true
+      - name: Run
+        run: yarn && yarn build
+
+      - name: Cypress tests
+        uses: replayio/action-cypress@v0.2.3
+        with:
+          command: yarn test:integration --
+          browser: "Replay Chromium"
+          api-key: ${{ secrets.CYPRESS_REPLAY_API_KEY }}
+          public: true
+          issue-number: ${{ github.event.pull_request.number }}
+          upload-all: true
