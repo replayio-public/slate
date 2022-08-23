@@ -1,37 +1,11 @@
-name: CI
-
-on:
+name: E2E Test
+on: 
+  schedule:
+  # Hammer the backend by running this every 5mins 😈
+    - cron: '*/5 * * * *'
   push:
-    branches: [ main ]
-  pull_request:
 
 jobs:
-  ci:
-    name: ${{ matrix.command }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        command:
-          - 'test'
-          - 'lint:eslint'
-          - 'lint:prettier'
-          - 'lint:typescript'
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-          cache: yarn
-          key: node16
-
-      - name: Run ${{ matrix.command }}
-        run: yarn && yarn build && yarn ${{ matrix.command }}
-        env:
-          CI: true
-
   cy:    
     name: Run Cypress
     runs-on: ubuntu-latest
