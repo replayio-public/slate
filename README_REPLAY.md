@@ -1,7 +1,7 @@
 ## Links
 
 - [Team invitation](https://app.replay.io/team/invitation?code=c3cc3803-ccee-49be-82f4-4c5a414b4892)
-- [Link to team](https://www.notion.so/REPLAY_README-md-Slate-7524fe279c32485b816455e673ad9764)
+- [Link to team](https://app.replay.io/team/dzowMGUzZDkyNS1mMDJkLTRmMDEtYjU5OC1kYjk0ZWE1ZTlkMGE=)
 
 ## Instructions
 
