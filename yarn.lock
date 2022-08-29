@@ -3393,23 +3393,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replayio/cypress@npm:^0.2.15":
-  version: 0.2.15
-  resolution: "@replayio/cypress@npm:0.2.15"
+"@replayio/cypress@npm:^0.2.16":
+  version: 0.2.16
+  resolution: "@replayio/cypress@npm:0.2.16"
   dependencies:
-    "@replayio/replay": ^0.9.3
+    "@replayio/replay": ^0.9.4
+    "@replayio/test-utils": ^0.1.0
     uuid: ^8.3.2
   bin:
     replayio-cypress: bin/replayio-cypress.js
-  checksum: 91e1dac467b3a1eb14bb433db4e830bd0665628943e8a728f465e8bb8a36c65edfc297b67f4269b7c21a43fc66047feb291c6b625b8177346e5827c0894d587a
+  checksum: eebbcaeb686345eaf5184f1530eb9d8105aff1e56680d5c9a27611b45ffe433043d1d78dd53b83f5067c2b7156c8b9e03db3fcda38c87283f8fb6b35019e53de
   languageName: node
   linkType: hard
 
-"@replayio/replay@npm:^0.9.3":
-  version: 0.9.3
-  resolution: "@replayio/replay@npm:0.9.3"
+"@replayio/replay@npm:^0.9.4":
+  version: 0.9.4
+  resolution: "@replayio/replay@npm:0.9.4"
   dependencies:
-    "@replayio/sourcemap-upload": ^1.0.2
+    "@replayio/sourcemap-upload": ^1.0.3
     commander: ^7.2.0
     is-uuid: ^1.0.2
     jsonata: ^1.8.6
@@ -3418,20 +3419,31 @@ __metadata:
     ws: ^7.5.0
   bin:
     replay: bin/replay.js
-  checksum: eb9e19477db04ba7d1ad613b7f6566c2eea829bec3d82020e4fa8cf014865e067161e065f7ef8e5339db3629824440b154a26947f7800d3464760853850369a1
+  checksum: a1b9ce3e15922b040e0aaa21b95d61a856b0cf7bc9b9d74a0e0dc8387d9ed1cfa1329f5a880ad7e55fd5af35df3dacd429bc4adfa1ff3cf0f280b7378458c849
   languageName: node
   linkType: hard
 
-"@replayio/sourcemap-upload@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@replayio/sourcemap-upload@npm:1.0.2"
+"@replayio/sourcemap-upload@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@replayio/sourcemap-upload@npm:1.0.3"
   dependencies:
     commander: ^7.2.0
     debug: ^4.3.1
     glob: ^7.1.6
     node-fetch: ^2.6.1
     string.prototype.matchall: ^4.0.5
-  checksum: b82009a88f34699862ddb5132dfad1a47d24173f4a2431d0edef838281f9a9d36700ffdcaf547f15649d96bdbc61bb2f961b7f667aa90bc3df6203e1e4ccd135
+  checksum: ba3c51be7762e702c097436e40288f04de330cc06d49987060ec4803455d6e1de1cfe77bf663c838183759a601c9221af8367d72ca1ef33828c839cad3d23304
+  languageName: node
+  linkType: hard
+
+"@replayio/test-utils@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@replayio/test-utils@npm:0.1.0"
+  dependencies:
+    "@replayio/replay": ^0.9.4
+    node-fetch: ^2.6.7
+    uuid: ^8.3.2
+  checksum: 1ae70b45de0d02808023a01d8fc6c70b7860b5f0974234ac006ff9ace15876cfb8506e5f22e4b077dcd1221df0a08f4b6c506339c77db66714377e551f9f19f5
   languageName: node
   linkType: hard
 
@@ -11579,6 +11591,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-fetch@npm:^2.6.7":
+  version: 2.6.7
+  resolution: "node-fetch@npm:2.6.7"
+  dependencies:
+    whatwg-url: ^5.0.0
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: 8d816ffd1ee22cab8301c7756ef04f3437f18dace86a1dae22cf81db8ef29c0bf6655f3215cb0cdb22b420b6fe141e64b26905e7f33f9377a7fa59135ea3e10b
+  languageName: node
+  linkType: hard
+
 "node-gyp@npm:^5.0.2":
   version: 5.1.1
   resolution: "node-gyp@npm:5.1.1"
@@ -14235,7 +14261,7 @@ resolve@^2.0.0-next.3:
     "@changesets/changelog-github": ^0.3.0
     "@changesets/cli": ^2.14.1
     "@emotion/css": ^11.7.1
-    "@replayio/cypress": ^0.2.15
+    "@replayio/cypress": ^0.2.16
     "@testing-library/cypress": ^8.0.0
     "@types/jest": 27.0.1
     "@types/lodash": ^4.14.149
@@ -15446,6 +15472,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"tr46@npm:~0.0.3":
+  version: 0.0.3
+  resolution: "tr46@npm:0.0.3"
+  checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
+  languageName: node
+  linkType: hard
+
 "trim-newlines@npm:^1.0.0":
   version: 1.0.0
   resolution: "trim-newlines@npm:1.0.0"
@@ -16023,6 +16056,13 @@ typescript@4.0.5:
   languageName: node
   linkType: hard
 
+"webidl-conversions@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "webidl-conversions@npm:3.0.1"
+  checksum: c92a0a6ab95314bde9c32e1d0a6dfac83b578f8fa5f21e675bc2706ed6981bc26b7eb7e6a1fab158e5ce4adf9caa4a0aee49a52505d4d13c7be545f15021b17c
+  languageName: node
+  linkType: hard
+
 "webidl-conversions@npm:^4.0.2":
   version: 4.0.2
   resolution: "webidl-conversions@npm:4.0.2"
@@ -16057,6 +16097,16 @@ typescript@4.0.5:
   version: 2.3.0
   resolution: "whatwg-mimetype@npm:2.3.0"
   checksum: 23eb885940bcbcca4ff841c40a78e9cbb893ec42743993a42bf7aed16085b048b44b06f3402018931687153550f9a32d259dfa524e4f03577ab898b6965e5383
+  languageName: node
+  linkType: hard
+
+"whatwg-url@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "whatwg-url@npm:5.0.0"
+  dependencies:
+    tr46: ~0.0.3
+    webidl-conversions: ^3.0.0
+  checksum: b8daed4ad3356cc4899048a15b2c143a9aed0dfae1f611ebd55073310c7b910f522ad75d727346ad64203d7e6c79ef25eafd465f4d12775ca44b90fa82ed9e2c
   languageName: node
   linkType: hard
 
