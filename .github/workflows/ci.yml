@@ -5,6 +5,9 @@ on:
   push:
   workflow_dispatch:
 
+env:
+  RECORD_REPLAY_CHROMIUM_DOWNLOAD_FILE: linux-chromium-20221102-18e4b9e5d490-b72370f29421.tar.xz
+
 jobs:
   cypress-record:
     runs-on: ubuntu-latest
