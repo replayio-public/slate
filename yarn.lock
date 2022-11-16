@@ -3393,16 +3393,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replayio/cypress@npm:^0.3.5":
-  version: 0.3.5
-  resolution: "@replayio/cypress@npm:0.3.5"
+"@replayio/cypress@npm:^0.3.9":
+  version: 0.3.9
+  resolution: "@replayio/cypress@npm:0.3.9"
   dependencies:
     "@replayio/replay": ^0.10.3
-    "@replayio/test-utils": ^0.2.4
+    "@replayio/test-utils": ^0.3.1
     uuid: ^8.3.2
   bin:
     replayio-cypress: bin/replayio-cypress.js
-  checksum: 48bde2b5a21107427eaae0e2fad683d6433bd237795547a1ba7d54a51ce05dbd204ac312307e0d54b5434d259e56d88ec29a8352b97f468097a80912c4ec40e5
+  checksum: f2a5665a87ae1a4a557aa8a2bb53ee6996759b9c110fefc9da6a74892a8ee9a94f42ced1b23fcde6943b656ad3d805fbfce92b6b4573f0fc987c6975a3fb19d3
   languageName: node
   linkType: hard
 
@@ -3437,15 +3437,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replayio/test-utils@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@replayio/test-utils@npm:0.2.4"
+"@replayio/test-utils@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@replayio/test-utils@npm:0.3.1"
   dependencies:
     "@replayio/replay": ^0.10.3
     "@types/node-fetch": ^2.6.2
     node-fetch: ^2.6.7
     uuid: ^8.3.2
-  checksum: 2e0994670e51e168c881a617804cbe920fc07749faf7a1548141cc0102010810921b4489b0e8ecdba3d100c24a987e4ece961bb7c32cfde53006a28cf5912545
+  checksum: f47ca36618e923a267f7244407c8ea7e31e6be95953828d4b2a39fbf49fef1e8fdbd6834cabc1c496a6937095227c7092eb6b39150a555d0753c6d5fd8d33cd6
   languageName: node
   linkType: hard
 
@@ -14273,7 +14273,7 @@ resolve@^2.0.0-next.3:
     "@changesets/changelog-github": ^0.3.0
     "@changesets/cli": ^2.14.1
     "@emotion/css": ^11.7.1
-    "@replayio/cypress": ^0.3.5
+    "@replayio/cypress": ^0.3.9
     "@testing-library/cypress": ^8.0.0
     "@types/jest": 27.0.1
     "@types/lodash": ^4.14.149
