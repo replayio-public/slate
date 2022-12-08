@@ -3393,22 +3393,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replayio/cypress@npm:^0.3.9":
-  version: 0.3.9
-  resolution: "@replayio/cypress@npm:0.3.9"
+"@replayio/cypress@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "@replayio/cypress@npm:0.4.3"
   dependencies:
-    "@replayio/replay": ^0.10.3
-    "@replayio/test-utils": ^0.3.1
+    "@replayio/replay": ^0.10.6
+    "@replayio/test-utils": ^0.3.4
+    semver: ^7.3.8
     uuid: ^8.3.2
   bin:
     replayio-cypress: bin/replayio-cypress.js
-  checksum: f2a5665a87ae1a4a557aa8a2bb53ee6996759b9c110fefc9da6a74892a8ee9a94f42ced1b23fcde6943b656ad3d805fbfce92b6b4573f0fc987c6975a3fb19d3
+  checksum: 0d7389d7b1b210b5e421279dd449f7d7a79644e053027f225cbc8181d8dccd46d8800fcc414a89e40da3976ba2baf1c343b6ade952236a8ec50a7a1e68e284b2
   languageName: node
   linkType: hard
 
-"@replayio/replay@npm:^0.10.3":
-  version: 0.10.3
-  resolution: "@replayio/replay@npm:0.10.3"
+"@replayio/replay@npm:^0.10.6":
+  version: 0.10.6
+  resolution: "@replayio/replay@npm:0.10.6"
   dependencies:
     "@replayio/sourcemap-upload": ^1.0.5
     commander: ^7.2.0
@@ -3420,7 +3421,7 @@ __metadata:
     ws: ^7.5.0
   bin:
     replay: bin/replay.js
-  checksum: 712d63d5092ea2f4916b82a34ca0fd9d1e86f70489d6d6a88b4458f377e046418889eb044cb7c5593f6a8e0dba128b6f03d6889c4042ba1035b34501a8a7eff8
+  checksum: 35e208f1216ffc6ebf8c09a23e66751925e8229a486bc803bbc40fbd901392c3a5cdbb914d4d56cd01992beddca377dc4078260e2a60c4f42beb44fb48124003
   languageName: node
   linkType: hard
 
@@ -3437,15 +3438,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replayio/test-utils@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@replayio/test-utils@npm:0.3.1"
+"@replayio/test-utils@npm:^0.3.4":
+  version: 0.3.4
+  resolution: "@replayio/test-utils@npm:0.3.4"
   dependencies:
-    "@replayio/replay": ^0.10.3
+    "@replayio/replay": ^0.10.6
     "@types/node-fetch": ^2.6.2
     node-fetch: ^2.6.7
     uuid: ^8.3.2
-  checksum: f47ca36618e923a267f7244407c8ea7e31e6be95953828d4b2a39fbf49fef1e8fdbd6834cabc1c496a6937095227c7092eb6b39150a555d0753c6d5fd8d33cd6
+  checksum: 19f32811cb0a5ddb23c8d712a737a98a47f1e0709fcdf18e9a71f137104ff65f2add96c3d0049d409db709603dc466d851c4b71259f3b7296869d83d203e7e2d
   languageName: node
   linkType: hard
 
@@ -14080,6 +14081,17 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"semver@npm:^7.3.8":
+  version: 7.3.8
+  resolution: "semver@npm:7.3.8"
+  dependencies:
+    lru-cache: ^6.0.0
+  bin:
+    semver: bin/semver.js
+  checksum: ba9c7cbbf2b7884696523450a61fee1a09930d888b7a8d7579025ad93d459b2d1949ee5bbfeb188b2be5f4ac163544c5e98491ad6152df34154feebc2cc337c1
+  languageName: node
+  linkType: hard
+
 "semver@npm:~2.3.1":
   version: 2.3.2
   resolution: "semver@npm:2.3.2"
@@ -14273,7 +14285,7 @@ resolve@^2.0.0-next.3:
     "@changesets/changelog-github": ^0.3.0
     "@changesets/cli": ^2.14.1
     "@emotion/css": ^11.7.1
-    "@replayio/cypress": ^0.3.9
+    "@replayio/cypress": ^0.4.3
     "@testing-library/cypress": ^8.0.0
     "@types/jest": 27.0.1
     "@types/lodash": ^4.14.149
