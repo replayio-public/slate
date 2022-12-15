@@ -22,13 +22,22 @@ jobs:
       - name: Run
         run: yarn && yarn build
 
+      # - name: Cypress run
+      #   if: always()
+      #   uses: cypress-io/github-action@v4
+      #   with:
+      #     browser: 'Replay Chromium'
+      #     # # start the application before running Cypress
+      #     # start: npm run serve
+      #   env:
+      #     RECORD_REPLAY_TEST_METRICS: 1
+      #     RECORD_REPLAY_WEBHOOK_URL: ${{ secrets.RECORD_REPLAY_WEBHOOK_URL }}
+      #     RECORD_ALL_CONTENT: 1
+      #     RECORD_REPLAY_METADATA_FILE: /tmp/replay-metadata
+      #     CYPRESS_NO_COMMAND_LOG: 1
+
       - name: Cypress run
-        if: always()
-        uses: cypress-io/github-action@v4
-        with:
-          browser: 'Replay Chromium'
-          # # start the application before running Cypress
-          # start: npm run serve
+        run: yarn cypress:ci:replay
         env:
           RECORD_REPLAY_TEST_METRICS: 1
           RECORD_REPLAY_WEBHOOK_URL: ${{ secrets.RECORD_REPLAY_WEBHOOK_URL }}
