@@ -33,6 +33,7 @@
     "test:inspect": "yarn test --inspect-brk",
     "test:integration": "run-p -r serve \"cypress:run {@}\"",
     "test:integration:replay": "run-p -r serve \"cypress:run:replay {@}\"",
+    "test:integration:ci:replay": "run-p -r serve \"cypress:run:replay {@}\"",
     "test:mocha": "mocha --require ./config/babel/register.cjs ./packages/{slate,slate-history,slate-hyperscript}/test/**/*.{js,ts}",
     "test:jest": "jest --config jest.config.js",
     "watch": "yarn build:rollup --watch",
