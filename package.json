@@ -33,11 +33,13 @@
     "test:inspect": "yarn test --inspect-brk",
     "test:integration": "run-p -r serve \"cypress:run {@}\"",
     "test:integration:replay": "run-p -r serve \"cypress:run:replay {@}\"",
+    "test:integration:ci:replay": "run-p -r serve \"cypress:run:replay {@}\"",
     "test:mocha": "mocha --require ./config/babel/register.cjs ./packages/{slate,slate-history,slate-hyperscript}/test/**/*.{js,ts}",
     "test:jest": "jest --config jest.config.js",
     "watch": "yarn build:rollup --watch",
     "cypress:run": "RECORD_REPLAY_VERBOSE=1 cypress run",
     "cypress:run:replay": "RECORD_ALL_CONTENT=1 RECORD_REPLAY_METADATA_FILE=$(mktemp) cypress run --browser \"Replay Chromium\"",
+    "cypress:ci:replay": "cypress run --browser \"Replay Chromium\"",
     "cypress:open": "cypress open"
   },
   "devDependencies": {

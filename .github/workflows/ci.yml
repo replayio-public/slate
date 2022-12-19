@@ -6,8 +6,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  cypress-record:
+  record:
     runs-on: ubuntu-latest
+    outputs:
+      recordDuration: ${{steps.end.outputs.recordDuration}}
+      uploadDuration: ${{steps.end.outputs.uploadDuration}}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -22,19 +25,43 @@ jobs:
       - name: Run
         run: yarn && yarn build
 
-      - name: Cypress tests
-        uses: replayio/action-cypress@v0.2.3
-        with:
-          command: yarn test:integration --
-          browser: "Replay Chromium"
-          api-key: ${{ secrets.CYPRESS_REPLAY_API_KEY }}
-          public: true
-          issue-number: ${{ github.event.pull_request.number }}
-          upload-all: true
+      - name: Cypress run
+        run: yarn test:integration:ci:replay
         env:
           RECORD_REPLAY_TEST_METRICS: 1
           RECORD_REPLAY_WEBHOOK_URL: ${{ secrets.RECORD_REPLAY_WEBHOOK_URL }}
-  cypress-no-record:
+          RECORD_ALL_CONTENT: 1
+          RECORD_REPLAY_METADATA_FILE: /tmp/replay-metadata
+          CYPRESS_NO_COMMAND_LOG: 1
+
+      - name: Parse test run duration
+        id: set_var
+        if: always()
+        run: |
+          content=`cat duration.json`
+          echo "::set-output name=duration::$content"
+
+      - name: Set upload start
+        if: always()
+        id: uploadStart
+        run: echo "time=`date +%s`" >> $GITHUB_OUTPUT
+
+      - name: Upload replays ▶️
+        if: ${{ always() }}
+        uses: replayio/action-upload@v0.4.3
+        with:
+          api-key: ${{ secrets.CYPRESS_REPLAY_API_KEY }}
+          public: true
+
+      - name: Set duration in output
+        id: end
+        if: always()
+        run: | 
+          echo "recordDuration=${{fromJson(steps.set_var.outputs.duration)}}" >> $GITHUB_OUTPUT
+          echo "uploadDuration=$(((`date +%s` - ${{ steps.uploadStart.outputs.time }}) * 1000))" >> $GITHUB_OUTPUT
+  no-record:
+    outputs:
+      noRecordDuration: ${{steps.end.outputs.noRecordDuration}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -50,21 +77,31 @@ jobs:
       - name: Run
         run: yarn && yarn build
 
-      - name: Cypress tests
-        uses: replayio/action-cypress@v0.2.3
-        with:
-          command: yarn test:integration --
-          browser: "Replay Chromium"
-          api-key: ${{ secrets.CYPRESS_REPLAY_API_KEY }}
-          public: true
-          issue-number: ${{ github.event.pull_request.number }}
-          upload-all: true
+      - name: Cypress run
+        run: yarn test:integration:ci:replay
         env:
+          RECORD_REPLAY_TEST_METRICS: 1
+          RECORD_REPLAY_WEBHOOK_URL: ${{ secrets.RECORD_REPLAY_WEBHOOK_URL }}
+          RECORD_ALL_CONTENT: 1
+          RECORD_REPLAY_METADATA_FILE: /tmp/replay-metadata
           RECORD_REPLAY_DRIVER: /tmp/not-here
-          RECORD_REPLAY_TEST_METRICS: 1
-          RECORD_REPLAY_WEBHOOK_URL: ${{ secrets.RECORD_REPLAY_WEBHOOK_URL }}
-  cypress-original:
+          CYPRESS_NO_COMMAND_LOG: 1
+
+      - name: Parse test run duration
+        id: set_var
+        if: always()
+        run: |
+          content=`cat duration.json`
+          echo "::set-output name=duration::$content"
+
+      - name: Set duration in output
+        if: always()
+        id: end
+        run: echo "noRecordDuration=${{fromJson(steps.set_var.outputs.duration)}}" >> $GITHUB_OUTPUT
+  original:
     runs-on: ubuntu-latest
+    outputs:
+      originalDuration: ${{steps.end.outputs.originalDuration}}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -79,7 +116,42 @@ jobs:
       - name: Run
         run: yarn && yarn build
 
-      - name: Run test
+      - name: Set test start
+        if: always()
+        id: start
+        run: echo "time=`date +%s`" >> $GITHUB_OUTPUT
+
+      - name: Cypress run
         run: yarn test:integration
-        env:
-          CI: true
+
+      - name: Parse test run duration
+        id: set_var
+        if: always()
+        run: |
+          content=`cat duration.json`
+          echo "::set-output name=duration::$content"
+
+      - name: Set duration in output
+        if: always()
+        id: end
+        run: echo "originalDuration=${{fromJson(steps.set_var.outputs.duration)}}" >> $GITHUB_OUTPUT
+  
+  upload-benchmarks:
+    name: Upload benchmarks
+    runs-on: ubuntu-latest
+    needs: [record, no-record, original]
+    if: always()
+    steps:
+      - run: |
+          echo "Record Duration: ${{ needs.record.outputs.recordDuration }}"
+          echo "No Record Duration: ${{ needs.no-record.outputs.noRecordDuration }}"
+          echo "Original Duration: ${{ needs.original.outputs.originalDuration }}"
+          echo "Upload Duration: ${{ needs.record.outputs.uploadDuration }}"
+      - name: Fetch API Data 📦
+        uses: JamesIves/fetch-api-data-action@v2
+        # Don't upload metrics for pull requests, so our stats are clean
+        if: ${{ github.ref_name == 'main' }}
+        with:
+          endpoint: "https://telemetry.replay.io"
+          # Make sure to append the correct project name in the JSON below
+          configuration: '{ "method": "POST", "body": {"event": "Webhook", "source": "metrics", "name": "action-finished-2", "project": "slate", "originalDuration": "${{ needs.original.outputs.originalDuration }}", "recordDuration": "${{ needs.record.outputs.recordDuration }}", "noRecordDuration": "${{ needs.no-record.outputs.noRecordDuration }}", "uploadDuration": "${{ needs.record.outputs.uploadDuration }}"} }'
