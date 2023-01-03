@@ -33,6 +33,9 @@ jobs:
           RECORD_ALL_CONTENT: 1
           RECORD_REPLAY_METADATA_FILE: /tmp/replay-metadata
           CYPRESS_NO_COMMAND_LOG: 1
+          # These two are here to help with measuring the true overhead by disabling diagnostics
+          RECORD_REPLAY_DISABLE_ASSERTS: 1
+          RECORD_REPLAY_DISABLE_SOURCEMAP_COLLECTION: 1
 
       - name: Parse test run duration
         id: set_var
@@ -86,6 +89,10 @@ jobs:
           RECORD_REPLAY_METADATA_FILE: /tmp/replay-metadata
           RECORD_REPLAY_DRIVER: /tmp/not-here
           CYPRESS_NO_COMMAND_LOG: 1
+          # These two are here to help with measuring the true overhead by disabling diagnostics
+          RECORD_REPLAY_DISABLE_ASSERTS: 1
+          RECORD_REPLAY_DISABLE_SOURCEMAP_COLLECTION: 1
+
 
       - name: Parse test run duration
         id: set_var
