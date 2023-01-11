@@ -3393,35 +3393,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replayio/cypress@npm:^0.4.6":
-  version: 0.4.6
-  resolution: "@replayio/cypress@npm:0.4.6"
+"@replayio/cypress@npm:^0.4.8":
+  version: 0.4.8
+  resolution: "@replayio/cypress@npm:0.4.8"
   dependencies:
-    "@replayio/replay": ^0.10.7
-    "@replayio/test-utils": ^0.3.5
+    "@replayio/replay": ^0.11.0
+    "@replayio/test-utils": ^0.3.7
     semver: ^7.3.8
     uuid: ^8.3.2
   bin:
     replayio-cypress: bin/replayio-cypress.js
-  checksum: 0bb9e0a18c5b431047ddadfccdf1ae46eb52aedac36596ef417eb89ebed23cc6a0f486a84ffbb14a39f931fe37d76c40e1b46ef61f0598e083633a1152495522
+  checksum: 6f5b8e0d9534ad6550e93a5bea748681d69d2af81095e2bc957dcfb61a3f983c94ce718a30b8fe56020b01684fb73d2ad1b3516c6928979878dfd8bdebb9f061
   languageName: node
   linkType: hard
 
-"@replayio/replay@npm:^0.10.7":
-  version: 0.10.7
-  resolution: "@replayio/replay@npm:0.10.7"
+"@replayio/replay@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@replayio/replay@npm:0.11.0"
   dependencies:
     "@replayio/sourcemap-upload": ^1.0.5
     commander: ^7.2.0
     debug: ^4.3.4
     is-uuid: ^1.0.2
     jsonata: ^1.8.6
+    p-map: ^4.0.0
     superstruct: ^0.15.4
     text-table: ^0.2.0
     ws: ^7.5.0
   bin:
     replay: bin/replay.js
-  checksum: ed1d256026f71ad6e4041a2083e97561586e82bed33887ffd277a3106b026bad0e96337acaf814742890ebb61eb053977aacf0096d6e06ec064ec3f34d9b1599
+  checksum: eafb8e9ae0304789155b045d4a302ca001c7327df7907651b51363da6ca7e3648331785b0d08cc66668986ecb720e7f67ce55a64ed8426c878820e65cb48b477
   languageName: node
   linkType: hard
 
@@ -3438,15 +3439,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replayio/test-utils@npm:^0.3.5":
-  version: 0.3.5
-  resolution: "@replayio/test-utils@npm:0.3.5"
+"@replayio/test-utils@npm:^0.3.7":
+  version: 0.3.7
+  resolution: "@replayio/test-utils@npm:0.3.7"
   dependencies:
-    "@replayio/replay": ^0.10.7
+    "@replayio/replay": ^0.11.0
     "@types/node-fetch": ^2.6.2
     node-fetch: ^2.6.7
     uuid: ^8.3.2
-  checksum: c620d00a62c9576bb87a4825cecc306322c84cb10c4b76e87dd6da22632ebbeafc044375306f0395102f7eb89c913d727698f4fb0ae419b3818973dbf57f4b20
+  checksum: 3502153bee78f2168148f48eb41e4737a63b48102c287e4250d2c9d6f6069ca699a5d3375855cad1ae242229182c9ede350521fdd0570ebd6440b9bf2a48f4dd
   languageName: node
   linkType: hard
 
@@ -14285,7 +14286,7 @@ resolve@^2.0.0-next.3:
     "@changesets/changelog-github": ^0.3.0
     "@changesets/cli": ^2.14.1
     "@emotion/css": ^11.7.1
-    "@replayio/cypress": ^0.4.6
+    "@replayio/cypress": ^0.4.8
     "@testing-library/cypress": ^8.0.0
     "@types/jest": 27.0.1
     "@types/lodash": ^4.14.149
