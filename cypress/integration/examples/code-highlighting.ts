@@ -32,7 +32,11 @@ describe('code highlighting', () => {
   )
 
   it('highlights HTML tags', () => {
+    const JSCode = 'const slateVar = 30;{enter}'
+    cy.get('select').select('JavaScript') // Select the 'JavaScript' option
+    cy.get('select').should('have.value', 'js') // Confirm value to avoid race condition
     cy.screenshot()
+    
     cy.get(slateEditor)
       .find('span')
       .eq(0)
