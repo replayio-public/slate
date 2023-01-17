@@ -69,6 +69,12 @@ jobs:
         with:
             name: cypress-screenshots
             path: cypress/screenshots
+      - name: Upload videos
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+            name: cypress-videos
+            path: cypress/videos
   no-record:
     outputs:
       noRecordDuration: ${{steps.end.outputs.noRecordDuration}}
