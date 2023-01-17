@@ -6,17 +6,6 @@ describe('code highlighting', () => {
     cy.visit('examples/code-highlighting')
   })
 
-  it('highlights HTML tags', () => {
-    cy.screenshot()
-    cy.get(slateEditor)
-      .find('span')
-      .eq(0)
-      .find(leafNode)
-      .eq(0)
-      .should('contain', '<h1>')
-      .should('have.css', 'color', 'rgb(153, 0, 85)')
-  })
-
   it(
     'highlights javascript syntax',
     {
@@ -41,4 +30,16 @@ describe('code highlighting', () => {
         .should('have.css', 'color', 'rgb(0, 119, 170)')
     }
   )
+
+  it('highlights HTML tags', () => {
+    cy.screenshot()
+    cy.get(slateEditor)
+      .find('span')
+      .eq(0)
+      .find(leafNode)
+      .eq(0)
+      .should('contain', '<h1>')
+      .should('have.css', 'color', 'rgb(153, 0, 85)')
+  })
+
 })
