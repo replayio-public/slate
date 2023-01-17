@@ -62,6 +62,13 @@ jobs:
         run: | 
           echo "recordDuration=${{fromJson(steps.set_var.outputs.duration)}}" >> $GITHUB_OUTPUT
           echo "uploadDuration=$(((`date +%s` - ${{ steps.uploadStart.outputs.time }}) * 1000))" >> $GITHUB_OUTPUT
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+            name: cypress-screenshots
+            path: cypress/screenshots
   no-record:
     outputs:
       noRecordDuration: ${{steps.end.outputs.noRecordDuration}}
