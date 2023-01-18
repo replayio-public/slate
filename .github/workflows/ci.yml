@@ -129,7 +129,7 @@ jobs:
         run: echo "time=`date +%s`" >> $GITHUB_OUTPUT
 
       - name: Cypress run
-        run: yarn test:integration
+        run: yarn test:integration:chromium
 
       - name: Parse test run duration
         id: set_var
