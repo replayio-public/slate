@@ -3393,19 +3393,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replayio/cypress@npm:^0.5.4":
-  version: 0.5.4
-  resolution: "@replayio/cypress@npm:0.5.4"
+"@replayio/cypress@npm:^0.5.5":
+  version: 0.5.5
+  resolution: "@replayio/cypress@npm:0.5.5"
   dependencies:
     "@replayio/replay": ^0.12.3
     "@replayio/test-utils": ^0.5.2
+    debug: ^4.3.4
     semver: ^7.3.8
     uuid: ^8.3.2
   peerDependencies:
     cypress: ">=5.3.0"
   bin:
     replayio-cypress: bin/replayio-cypress.js
-  checksum: baa9dc98587eac5b773ecf36f6325e0a03c6f664b5c40793a78d400aaba39f5c5d4f1abdf3ff9559392d1d8d1725f8b46222027d4823b5762a4008067716a0e0
+  checksum: 635586254d2cb7c6610407218d83639b0a5e9ca2f07b871f30afe3bab72bba0136fd42d0cf4c9b879f23b40c00385ceec3b4a78e5dc0bc5ac8ad22b0faaab2a2
   languageName: node
   linkType: hard
 
@@ -14304,7 +14305,7 @@ resolve@^2.0.0-next.3:
     "@changesets/changelog-github": ^0.3.0
     "@changesets/cli": ^2.14.1
     "@emotion/css": ^11.7.1
-    "@replayio/cypress": ^0.5.4
+    "@replayio/cypress": ^0.5.5
     "@testing-library/cypress": ^8.0.0
     "@types/jest": 27.0.1
     "@types/lodash": ^4.14.149
